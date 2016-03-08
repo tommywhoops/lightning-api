@@ -13,7 +13,7 @@ class RootController < ApplicationController
     if Rails.env.development?
       '__development__'
     else
-      'current'
+      $redis.get "lightning-client:index:current"
     end
   end
 end
