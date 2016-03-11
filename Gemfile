@@ -15,6 +15,9 @@ gem 'pg', '~> 0.18.2'
 
 gem "redis-rails" # Will install several other redis-* gems
 
+gem 'jsonapi-serializers'
+gem 'responders', '~> 2.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -36,6 +39,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem 'pry-rails'
+
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'poltergeist'
+  gem 'selenium-webdriver', '2.45.0'
 end
 
 group :development do
