@@ -4,3 +4,12 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+Rake::Task[:default].prerequisites.clear
+
+desc "feature specs"
+task ci: :environment do
+  system "rspec spec/features" or exit!(1)
+end
+
+task default: :ci
