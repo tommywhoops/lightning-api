@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "the things listing page" do
-  let!(:thing) { FactoryGirl.create(:thing, title: "A Thingy") }
+  # let!(:thing) { FactoryGirl.create(:thing, title: "A Thingy") }
 
   context "when visiting the things page" do
     scenario "it renders the things template" do
@@ -14,7 +14,6 @@ feature "the things listing page" do
     scenario "lists the things" do
       visit '/'
       click_button 'Things'
-
       expect(page).to have_content 'A Thingy'
     end
   end

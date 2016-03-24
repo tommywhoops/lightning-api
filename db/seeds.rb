@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Thing.create(title: "Default Thingy Record")
+Thing.create(title: "Is this in the tests??")

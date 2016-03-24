@@ -1,38 +1,42 @@
-RSpec.configure do |config|
+# Un-comment this file if you want to go back to using FactoryGirl
+# in feature specs instead of using 'rake db:seed RAILS_ENV=test'
+# to seed the test db with data.
 
-  config.use_transactional_fixtures = false
+# RSpec.configure do |config|
 
-  config.before(:suite) do
-    if config.use_transactional_fixtures?
-      raise(<<-MSG)
-        Delete line `config.use_transactional_fixtures = true` from rails_helper.rb
-        (or set it to false) to prevent uncommitted transactions being used in
-        JavaScript-dependent specs.
+#   config.use_transactional_fixtures = false
 
-        During testing, the app-under-test that the browser driver connects to
-        uses a different database connection to the database connection used by
-        the spec. The app's database connection would not be able to access
-        uncommitted transaction data setup over the spec's database connection.
-      MSG
-    end
-    DatabaseCleaner.clean_with(:truncation)
-  end
+#   config.before(:suite) do
+#     if config.use_transactional_fixtures?
+#       raise(<<-MSG)
+#         Delete line `config.use_transactional_fixtures = true` from rails_helper.rb
+#         (or set it to false) to prevent uncommitted transactions being used in
+#         JavaScript-dependent specs.
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
+#         During testing, the app-under-test that the browser driver connects to
+#         uses a different database connection to the database connection used by
+#         the spec. The app's database connection would not be able to access
+#         uncommitted transaction data setup over the spec's database connection.
+#       MSG
+#     end
+#     DatabaseCleaner.clean_with(:truncation)
+#   end
 
-  config.before(:each, type: :feature) do
-    DatabaseCleaner.strategy = :truncation
-    FactoryGirl.reload
-  end
+#   config.before(:each) do
+#     DatabaseCleaner.strategy = :transaction
+#   end
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
+#   config.before(:each, type: :feature) do
+#     DatabaseCleaner.strategy = :truncation
+#     FactoryGirl.reload
+#   end
 
-  config.append_after(:each) do
-    DatabaseCleaner.clean
-  end
+#   config.before(:each) do
+#     DatabaseCleaner.start
+#   end
 
-end
+#   config.append_after(:each) do
+#     DatabaseCleaner.clean
+#   end
+
+# end
