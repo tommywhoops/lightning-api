@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Thing.create(title: "Default Thingy Record")
-Thing.create(title: "Is this in the tests??")
+# 10 'thing records'
+(1..10).each { |n| Thing.create(title: "Seed Thing #{n}") }
